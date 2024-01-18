@@ -1,0 +1,15 @@
+.dialog {
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  height: 400px;
+  border: 2px solid var(--color-border);
+  border-radius: 8px;
+  outline: none;
+}
+
+.dialog::backdrop {
+  background: black;
+  opacity: 0.25;
+}

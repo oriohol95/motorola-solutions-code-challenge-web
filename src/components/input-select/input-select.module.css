@@ -1,0 +1,12 @@
+.select {
+  height: 44px;
+  width: 100%;
+  /* width: 140px; */
+  border: 2px solid var(--color-border);
+  border-radius: 8px;
+  box-shadow: var(--color-border) 0px 0px 8px;
+  color: var(--color-dark);
+  outline: none;
+  padding: 0 8px;
+  cursor: pointer;
+}

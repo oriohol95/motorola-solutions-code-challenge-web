@@ -1,0 +1,17 @@
+.button {
+  display: grid;
+  place-content: center;
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 50%;
+  color: var(--color-dark);
+  background: var(--color-light);
+  box-shadow: var(--color-border) 0px 0px 8px;
+  
+  cursor: pointer;
+  transition: all ease-in-out 0.2s;
+}
+.button:hover {
+  background: var(--color-gray);
+}

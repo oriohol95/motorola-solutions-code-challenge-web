@@ -1,0 +1,41 @@
+.wrapper {
+  display: flex;
+  border: 2px solid var(--color-border);
+  background: var(--color-background);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: var(--color-border) 0px 0px 8px;
+  color: var(--color-dark);
+}
+
+.box {
+  min-height: 40px;
+  min-width: 40px;
+  border: none;
+  background: var(--color-background);
+  padding: 12px;
+  transition: all ease-in-out 0.2s;
+}
+.box:hover {
+  cursor: pointer;
+  background: var(--color-gray);
+}
+.box:first-child {
+  border-right: 2px solid var(--color-border);
+}
+.box:last-child {
+  border-left: 2px solid var(--color-border);
+}
+
+.selected {
+  background: var(--color-gray);
+  color: var(--color-dark);
+}
+.selected:hover {
+  cursor: initial;
+  background: var(--color-gray);
+}
+
+.disabled {
+  pointer-events: none;
+}
