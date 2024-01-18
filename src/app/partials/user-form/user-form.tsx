@@ -1,7 +1,8 @@
 'use client'
 import { useEffect, useState } from 'react'
+import { toast } from 'sonner'
 import { Button, Dialog, InputSelect, InputText } from '@/components'
-import { COUNTRY_OPTIONS, REGION_OPTIONS } from '@/constants'
+import { COUNTRY_OPTIONS, EMAIL_PATTERN, REGION_OPTIONS } from '@/constants'
 import { UserToUpdate } from '@/types'
 import styles from './user-form.module.css'
 
@@ -38,14 +39,22 @@ export default function UserForm ({
     setEmail(email)
     setCountry(country)
     setRegion(region)
-  }, [user])
+  }, [user, open])
 
   const handleSubmit = (e: any) => {
     e.preventDefault()
     if (!name || !email || !country || !region) {
-      console.log('error')
+      if (!name) toast.error('Type a valid Name')
+      else if (!email) toast.error('Type a valid Email')
+      else if (!country) toast.error('Choose a valid Country')
+      else if (!region) toast.error('Choose a valid Region')
       return
     }
+    if (!email.match(EMAIL_PATTERN)) {
+      toast.error('Type a valid Email format')
+      return
+    }
+
     onSubmit({
       id: user?.id ?? null,
       name,

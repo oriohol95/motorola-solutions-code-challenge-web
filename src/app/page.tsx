@@ -1,6 +1,7 @@
 'use client'
 import { useEffect, useState } from 'react'
 import { parseAsInteger, useQueryState } from 'nuqs'
+import { toast } from 'sonner'
 import { BsPencilSquare, BsTrash3 } from 'react-icons/bs'
 import { PageController, InputSelect, InputText, Button, ActionButton } from '@/components'
 import { UserForm } from './partials'
@@ -24,7 +25,7 @@ export default function UserDashboard () {
     if (!pageSize) setPageSize(DEFAULT_PAGE_SIZE)
     getUsers({ size: pageSize, page, text, country, region }).then((newUserList) => {
       setUserList(newUserList)
-    })
+    }).catch(() => toast.error('Error when getting users'))
   }, [pageSize, page, setPage, setPageSize, text, country, region])
 
   const handleDelete = (id: string) => {
@@ -32,7 +33,8 @@ export default function UserDashboard () {
       getUsers({ size: pageSize, page, text, country, region }).then((newUserList) => {
         setUserList(newUserList)
       })
-    })
+      toast.error('User has been deleted')
+    }).catch(() => toast.error('Error when deleting user'))
   }
 
   const handleSubmit = (user: UserToUpdate) => {
@@ -42,13 +44,15 @@ export default function UserDashboard () {
         getUsers({ size: pageSize, page, text, country, region }).then((newUserList) => {
           setUserList(newUserList)
         })
-      })
+        toast.success('User has been created')
+      }).catch(() => toast.error('Error when creating user'))
     } else {
       updateUser(user).then(() => {
         getUsers({ size: pageSize, page, text, country, region }).then((newUserList) => {
           setUserList(newUserList)
         })
-      })
+        toast.success('User has been updated')
+      }).catch(() => toast.error('Error when updating user'))
     }
     setUserToUpdate(null)
   }

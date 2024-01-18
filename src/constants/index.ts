@@ -1,6 +1,8 @@
 export const DEFAULT_PAGE_SIZE = 10
 export const DEFAULT_PAGE = 1
 
+export const EMAIL_PATTERN = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
+
 export const PAGE_SIZE_OPTIONS = [
   {
     label: '10 Listings',

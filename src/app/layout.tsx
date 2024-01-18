@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react'
 import type { Metadata } from 'next'
 import { Header } from '@/components'
+import { ToasterProvider } from '@/providers'
 import { Roboto } from 'next/font/google'
 import './globals.css'
 
@@ -23,7 +24,9 @@ export default function RootLayout ({
     <html lang='en'>
       <body className={roboto.className}>
         <Header />
-        {children}
+        <ToasterProvider>
+          {children}
+        </ToasterProvider>
       </body>
     </html>
   )
