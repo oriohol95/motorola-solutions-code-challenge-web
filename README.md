@@ -1,4 +1,16 @@
+# Motorola Solutions Code Challenge WEB
 
+• Data Table: Display a table that shows data retrieved from provided json.
+
+• Filters: Implement filters for the data table. Users should be able to filter the data based on country and region, and the results should display name and email.
+
+• Search Bar: User should be able to search for name and email.
+
+• Pagination: The table should support pagination to display a limited number of rows per page. Users should be able to navigate between pages.
+
+• Add Data Form: Create a form that allows users to add new data to the table in real-time. The form should include fields relevant to the data.
+
+• Real-time Update: When a user adds new data using the form, the table should update in real-time without requiring a page refresh.
 
 ## Getting Started
 
